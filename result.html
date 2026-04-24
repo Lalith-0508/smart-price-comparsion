@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h2>{{ product }}</h2>
+
+{% for site, price in prices.items() %}
+<p>{{ site }}: ₹{{ price }}</p>
+{% endfor %}
+
+<h3>Lowest: ₹{{ lowest_price }} at {{ lowest_site }}</h3>
+
+{% if predicted_price %}
+<h3>Predicted: ₹{{ predicted_price }}</h3>
+<h3>Trend: {{ trend }}</h3>
+{% endif %}
+
+<h3>{{ advice }}</h3>
+
+{% if graph %}
+<img src="/static/graph.png" width="400">
+{% endif %}
+
+<br><br>
+<a href="/">Search Again</a>
+
+</body>
+</html>
